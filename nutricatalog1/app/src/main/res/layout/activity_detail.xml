@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/desc_detail_image"/>
+
+        <TextView
+            android:id="@+id/detail_name"
+            android:text="@string/detail_nama"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="#333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/detail_category"
+            android:text="@string/detail_kategori"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#555"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/detail_type"
+            android:text="@string/detail_tipe"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#555"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/detail_nutrition"
+            android:text="@string/detail_gizi"
+            android:textSize="16sp"
+            android:textColor="#555"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/detail_ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bahan"
+            android:textSize="16sp"
+            android:textColor="#555"
+            android:layout_marginBottom="4dp" />
+
+        <Button
+            android:id="@+id/btn_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/btn_favorit"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FF4081"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+</ScrollView>

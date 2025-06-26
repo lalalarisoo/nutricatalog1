@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Nutricatalog</string>
+
+    <string-array name="category_array">
+        <item>Semua Kategori</item>
+        <item>Anak-anak</item>
+        <item>Lansia</item>
+        <item>Atlet / Aktif</item>
+        <item>Anak dengan Stunting</item>
+        <item>Orang Dewasa</item>
+    </string-array>
+
+    <string-array name="nutrition_array">
+        <item>Semua Gizi</item>
+        <item>Tinggi Protein</item>
+        <item>Rendah Lemak</item>
+        <item>Tinggi Kalori</item>
+        <item>Tinggi Serat</item>
+    </string-array>
+
+    <string name="desc_detail_image">Gambar makanan yang dipilih</string>
+    <string name="btn_favorit"> 🤍 Simpan ke Favorit</string>
+    <string name="detail_nama">Nama Makanan</string>
+    <string name="detail_kategori">Kategori: -</string>
+    <string name="detail_tipe">Tipe: -</string>
+    <string name="detail_gizi">Kandungan Gizi: -</string>
+    <string name="bahan">Bahan: -</string>
+
+</resources>
