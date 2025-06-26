@@ -13,11 +13,9 @@ public class DetailActivity extends AppCompatActivity {
 
     private Button btnFavorite;
     private ImageView foodImage;
-    private TextView foodNameText, foodCategory, foodType, foodNutrition;
+    private TextView foodNameText, foodCategory, foodType, foodNutrition, foodRecipe;
 
     private String foodName; // untuk disimpan di favorit
-
-    private TextView tvIngredients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         foodCategory = findViewById(R.id.detail_category);
         foodType = findViewById(R.id.detail_type);
         foodNutrition = findViewById(R.id.detail_nutrition);
-        tvIngredients = findViewById(R.id.detail_ingredients);
+        foodRecipe = findViewById(R.id.detail_recipe);
 
         // Ambil data dari Intent
         Intent intent = getIntent();
@@ -42,8 +40,8 @@ public class DetailActivity extends AppCompatActivity {
             String category = extras.getString("category");
             String type = extras.getString("type");
             String nutrition = extras.getString("nutrition");
+            String recipe = extras.getString("recipe");
             int imageResId = extras.getInt("imageResId", R.drawable.ic_launcher_background);
-            String ingredients = extras.getString("ingredients");
 
             // Tampilkan data
             foodNameText.setText(foodName);
@@ -51,7 +49,7 @@ public class DetailActivity extends AppCompatActivity {
             foodType.setText("Jenis: " + type);
             foodNutrition.setText("Kandungan Gizi: " + nutrition);
             foodImage.setImageResource(imageResId);
-            tvIngredients.setText("Bahan: " + ingredients);
+            foodRecipe.setText("Resep Singkat: " + recipe);
 
             // Cek dan update status favorit
             boolean isFav = SharedPreferencesHelper.isFavorite(this, foodName);

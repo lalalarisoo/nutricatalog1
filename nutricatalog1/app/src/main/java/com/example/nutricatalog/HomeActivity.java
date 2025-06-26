@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
     private List<FoodItem> foodList;
     private FoodAdapter adapter;
 
-    private EditText searchIngredients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,6 @@ public class HomeActivity extends AppCompatActivity {
         searchView = findViewById(R.id.search_food);
         spinnerCategory = findViewById(R.id.spinner_category);
         spinnerNutrition = findViewById(R.id.spinner_nutrition);
-        searchIngredients = findViewById(R.id.search_ingredients);
 
         Button btnAbout = findViewById(R.id.btn_about);
         btnAbout.setOnClickListener(v -> {
@@ -94,19 +92,6 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        searchIngredients.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filterData(); // update list saat teks berubah
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
     }
 
     // Filter berdasarkan kategori, gizi, dan pencarian
@@ -114,7 +99,6 @@ public class HomeActivity extends AppCompatActivity {
         String selectedCategory = spinnerCategory.getSelectedItem().toString();
         String selectedNutrition = spinnerNutrition.getSelectedItem().toString();
         String queryName = searchView.getQuery().toString().toLowerCase();
-        String queryIngredients = searchIngredients.getText().toString().toLowerCase();
 
         List<FoodItem> filtered = new ArrayList<>();
 
@@ -122,16 +106,13 @@ public class HomeActivity extends AppCompatActivity {
             String name = item.getName() != null ? item.getName().toLowerCase() : "";
             boolean matchName = name.contains(queryName);
 
-            String ingredients = item.getIngredients() != null ? item.getIngredients().toLowerCase() : "";
-            boolean matchIngredients = ingredients.contains(queryIngredients);
-
             String category = item.getCategory() != null ? item.getCategory() : "";
             boolean matchCategory = selectedCategory.equals("Semua Kategori") || category.equalsIgnoreCase(selectedCategory);
 
             String nutrition = item.getNutrition() != null ? item.getNutrition().toLowerCase() : "";
             boolean matchNutrition = selectedNutrition.equals("Semua Gizi") || nutrition.contains(selectedNutrition.toLowerCase());
 
-            if (matchCategory && matchNutrition && matchName && matchIngredients) {
+            if (matchCategory && matchNutrition && matchName) {
                 filtered.add(item);
             }
         }
@@ -143,28 +124,19 @@ public class HomeActivity extends AppCompatActivity {
     // Dummy data untuk testing
     private List<FoodItem> generateDummyData() {
         List<FoodItem> list = new ArrayList<>();
-        list.add(new FoodItem("Bubur Ayam", "Anak-anak", "Ringan", "Tinggi Karbohidrat", R.drawable.bubur_ayam));
-        list.add(new FoodItem("Salmon Panggang", "Orang Dewasa", "Berat", "Tinggi Protein", R.drawable.salmon));
-        list.add(new FoodItem("Smoothie Pisang", "Anak dengan Stunting", "Cemilan", "Tinggi Kalori & Vitamin", R.drawable.smoothie));
+        list.add(new FoodItem("Salmon Panggang", "Orang Dewasa", "Berat", "Tinggi Protein",  "Lumuri salmon dengan lemon, garam, dan lada. Panggang 180°C selama 20 menit.", R.drawable.salmon));
+        list.add(new FoodItem("Smoothie Pisang", "Anak dengan Stunting", "Cemilan", "Tinggi Kalori & Vitamin", "Blender pisang, susu full cream, dan madu hingga halus.", R.drawable.smoothie));
+        list.add(new FoodItem("Oatmeal Pisang", "Lansia", "Ringan", "Tinggi Serat", "Rebus oatmeal dengan air, tambahkan pisang iris dan madu.", R.drawable.oatmeal));
+        list.add(new FoodItem("Ayam Rebus", "Atlet / Aktif", "Berat", "Tinggi Protein",  "Rebus dada ayam dengan bawang putih dan daun salam selama 30 menit.", R.drawable.ayam_rebus));
+        list.add(new FoodItem("Salad Sayuran", "Orang Dewasa", "Ringan", "Rendah Lemak", "Campurkan selada, tomat, wortel, dan dressing rendah lemak.", R.drawable.salad));
+        list.add(new FoodItem("Sup Ikan", "Anak-anak", "Berat", "Rendah Lemak", "Masak ikan dengan wortel, kentang, bawang putih dan seledri dalam kaldu ikan." , R.drawable.sup_ikan));
+        list.add(new FoodItem("Susu Kedelai", "Lansia", "Cemilan", "Tinggi Protein", "Rendam kedelai semalaman, blender dan saring, lalu rebus dengan daun pandan." , R.drawable.susu_kedelai));
+        list.add(new FoodItem("Telur Rebus", "Anak dengan Stunting", "Cemilan", "Tinggi Protein",  "Rebus telur selama 10 menit, kupas dan sajikan." , R.drawable.telur_rebus));
+        list.add(new FoodItem("Kentang Panggang", "Atlet / Aktif", "Cemilan", "Tinggi Kalori", "Potong kentang, lumuri minyak zaitun dan panggang 200°C selama 30 menit." , R.drawable.kentang));
+        list.add(new FoodItem("Pisang Kukus", "Anak-anak", "Cemilan", "Tinggi Kalori",  "Kupas pisang, kukus selama 10-15 menit sampai empuk.", R.drawable.pisang_kukus));
+        list.add(new FoodItem("Roti Gandum", "Orang Dewasa", "Cemilan", "Tinggi Serat",  "Panggang roti gandum, sajikan dengan selai kacang atau alpukat." , R.drawable.roti_gandum));
+        list.add(new FoodItem("Yogurt Rendah Lemak", "Orang Dewasa", "Cemilan", "Rendah Lemak", "Sajikan yogurt rendah lemak dingin, bisa ditambah potongan buah." , R.drawable.yogurt));
 
-        list.add(new FoodItem(
-                "Sop Ayam",
-                "Dewasa",
-                "Berprotein tinggi",
-                "Berkuah",
-                "Daging ayam, wortel, kentang, bawang putih, garam",
-                R.drawable.sop_ayam
-        ));
-
-        list.add(new FoodItem(
-                "Bubur Bayi Sehat",
-                "Anak-anak",
-                "Karbohidrat, Serat",
-                "Lembut",
-                "Beras merah, brokoli, wortel, susu",
-                R.drawable.bubur_bayi
-        ));
-        // Tambahkan data lainnya jika perlu
         return list;
     }
 }

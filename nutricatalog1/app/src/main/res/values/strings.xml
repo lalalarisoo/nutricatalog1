@@ -24,6 +24,6 @@
     <string name="detail_kategori">Kategori: -</string>
     <string name="detail_tipe">Tipe: -</string>
     <string name="detail_gizi">Kandungan Gizi: -</string>
-    <string name="bahan">Bahan: -</string>
+    <string name="detail_resep">Resep Singkat: -</string>
 
 </resources>

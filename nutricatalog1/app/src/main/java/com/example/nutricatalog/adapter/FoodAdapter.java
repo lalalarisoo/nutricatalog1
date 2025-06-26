@@ -42,8 +42,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             intent.putExtra("category", item.getCategory());
             intent.putExtra("type", item.getType());
             intent.putExtra("nutrition", item.getNutrition());
+            intent.putExtra("recipe", item.getRecipe());
             intent.putExtra("imageResId", item.getImageResId());
-            intent.putExtra("ingredients", item.getIngredients());
             context.startActivity(intent);
         });
     }
