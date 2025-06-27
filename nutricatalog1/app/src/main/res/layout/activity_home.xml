@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+<LinearLayout
     android:orientation="vertical"
     android:background="#F9F9F9"
     android:layout_width="match_parent"
@@ -55,4 +62,5 @@
         android:text="Tentang Aplikasi"
         android:layout_marginTop="16dp" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -19,7 +19,7 @@
     </string-array>
 
     <string name="desc_detail_image">Gambar makanan yang dipilih</string>
-    <string name="btn_favorit"> 🤍 Simpan ke Favorit</string>
+    <string name="btn_favorit"> 🩷 Simpan ke Favorit</string>
     <string name="detail_nama">Nama Makanan</string>
     <string name="detail_kategori">Kategori: -</string>
     <string name="detail_tipe">Tipe: -</string>
